@@ -1,1 +1,1 @@
-uri_conrection = "mysql://root:123brasil123@localhost:3306/test"
+uri_conrection = "mysql://xxxx:xxxxxxx@localhost:3306/test"
