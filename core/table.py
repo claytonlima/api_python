@@ -7,11 +7,9 @@ engine = create_engine(uri_conrection, encoding='latin1', echo=True)
 
 metadata = MetaData(bind=engine)
 
-table_usuarios = Table('usuarios', metadata,
-                   Column('id', Integer, primary_key=True),
-                   Column('nome', VARCHAR(40), index=True),
-                   Column('idade', Integer, nullable=False),
-                   Column('senha', VARCHAR(40)),
+table_types_of_trucks = Table('types_of_trucks', metadata,
+                   Column('type_id', Integer, primary_key=True),
+                   Column('truck', VARCHAR(40), index=True),
                    Column('criado_em', DateTime, default=datetime.now),
                    Column('atualizado_em', DateTime, default=datetime.now, onupdate=datetime.now)
                    )
