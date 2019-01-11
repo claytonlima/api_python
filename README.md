@@ -1,1 +1,1 @@
-# Configuracao do Projeto #
+# Configuração do Projeto #

@@ -2,3 +2,4 @@
 .idea
 Pipfile.lock
 core/__pycache__
+__pycache__/

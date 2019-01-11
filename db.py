@@ -1,0 +1,1 @@
+uri_conrection = "mysql://user:password@localhost:3306/test"
