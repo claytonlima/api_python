@@ -2,8 +2,6 @@ import jinja2
 from bottle import route, run
 from truck_types import Session, TrucksTypes
 from sqlalchemy import text
-import json
-from stix2.base import STIXJSONEncoder
 
 def get_template(template):
     templateLoader = jinja2.FileSystemLoader(searchpath="./views")
@@ -23,6 +21,7 @@ def getAll():
     stmt = text('SELECT truck_id, truck_name FROM trucks_types')
     stmt = stmt.columns(TrucksTypes.truck_id, TrucksTypes.truck_name)
     trucks_types = session.query(TrucksTypes).from_statement(stmt).all()
+    session.close()
 
     trucks = []
     for truck_type in trucks_types:
