@@ -9,12 +9,12 @@ class TrucksTypes(Base):
     __tablename__ = "trucks_types"
 
     truck_id = Column('truck_id', Integer, primary_key=True)
-    truck_name = Column('truck_name', String, unique=True)
+    truck_name = Column('truck_name', String)
     created_data = Column('created_data', TIMESTAMP)
     updated_data = Column('updated_data', TIMESTAMP)
 
 
-engine = create_engine('sqlite:///../project_trucks', echo=True)
+engine = create_engine('sqlite:///project_trucks', echo=True)
 Base.metadata.create_all(bind=engine)
 Session = sessionmaker(bind=engine)
 
@@ -24,7 +24,7 @@ Session = sessionmaker(bind=engine)
 # new_truck_type.truck_name = 'Optimus Prime'
 # new_truck_type.created_data = datetime.now()
 # new_truck_type.updated_data = datetime.now()
-
+#
 # session.add(new_truck_type)
 # session.commit()
 # session.close()
