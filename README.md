@@ -2,9 +2,10 @@
 
 Será necessário ter instalado o python 3.6
 <br />
-Fazer também a instalado do pipenv para instalação das depências do projeto.
+Ter o pipenv para instalado para instalação das depêndencias do projeto.
 <br />
-#Apis para Tipos de caminhões
+<br />
+**Apis para Tipos de caminhões**
 
 **127.0.0.1:8080/alltypesoftrucks**
 <br />
