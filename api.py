@@ -1,5 +1,5 @@
 from bottle import route, run, request
-from truck_types import add, update, delete, list_all_trucks
+from truck_types import add, update, delete, insert_types_of_trucks_auto, list_all_trucks
 from datetime import datetime
 
 
@@ -8,6 +8,7 @@ def getAll():
     result = list_all_trucks()
 
     return {'results': result}
+
 
 @route('/typeoftruck/add', method='POST')
 def add_new_type_of_truck():
@@ -26,6 +27,12 @@ def update_type_of_truck(id):
     atualizado_em = datetime.now()
 
     result = update(type_id, truck, atualizado_em)
+
+    return {'result': result}
+
+@route('/typeoftruck/addMock')
+def insert_mock_type_of_trucks():
+    result = insert_types_of_trucks_auto()
 
     return {'result': result}
 

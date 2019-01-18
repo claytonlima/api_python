@@ -17,6 +17,26 @@ engine = create_engine('sqlite:///project_trucks', echo=True)
 Base.metadata.create_all(bind=engine)
 Session = sessionmaker(bind=engine)
 
+def insert_types_of_trucks_auto():
+    objects = [
+        {'truck_id': 1, 'truck_name': 'Caminhão 3/4'},
+        {'truck_id': 2, 'truck_name': 'Caminhão Toco'},
+        {'truck_id': 3, 'truck_name': 'Caminhão Truck'},
+        {'truck_id': 4, 'truck_name': 'Carreta Simples'},
+        {'truck_id': 5, 'truck_name': 'Carreta Eixo Extendido'},
+    ]
+    session = Session()
+    new_truck_type = TrucksTypes()
+
+    for truck_type in objects:
+        new_truck_type.truck_id = truck_type['truck_id']
+        new_truck_type.truck_name = truck_type['truck_name']
+        result = session.add(new_truck_type)
+    
+    session.commit()
+    session.close()
+
+    return result
 
 def list_all_trucks():
     session = Session()
