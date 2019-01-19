@@ -1,0 +1,1 @@
+db_sqlite = 'sqlite:///database/project_trucks'

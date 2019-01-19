@@ -1,6 +1,7 @@
 from sqlalchemy import create_engine, Column, Integer, String, TIMESTAMP, text
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from config.db import db_sqlite
 
 Base = declarative_base()
 
@@ -12,27 +13,21 @@ class TrucksTypes(Base):
     created_data = Column('created_data', TIMESTAMP)
     updated_data = Column('updated_data', TIMESTAMP)
 
-
-engine = create_engine('sqlite:///project_trucks', echo=True)
+engine = create_engine(db_sqlite, echo=True)
 Base.metadata.create_all(bind=engine)
 Session = sessionmaker(bind=engine)
 
 def insert_types_of_trucks_auto():
-    objects = [
-        {'truck_id': 1, 'truck_name': 'Caminhão 3/4'},
-        {'truck_id': 2, 'truck_name': 'Caminhão Toco'},
-        {'truck_id': 3, 'truck_name': 'Caminhão Truck'},
-        {'truck_id': 4, 'truck_name': 'Carreta Simples'},
-        {'truck_id': 5, 'truck_name': 'Carreta Eixo Extendido'},
-    ]
     session = Session()
-    new_truck_type = TrucksTypes()
 
-    for truck_type in objects:
-        new_truck_type.truck_id = truck_type['truck_id']
-        new_truck_type.truck_name = truck_type['truck_name']
-        result = session.add(new_truck_type)
-    
+    objects = [
+        TrucksTypes(truck_id=1, truck_name='Caminhão 3/4'),
+        TrucksTypes(truck_id=2, truck_name='Caminhão Toco'),
+        TrucksTypes(truck_id=3, truck_name='Caminhão Truck'),
+        TrucksTypes(truck_id=4, truck_name='Carreta Simples'),
+        TrucksTypes(truck_id=5, truck_name='Carreta Eixo Extendido'),
+    ]
+    result = session.bulk_save_objects(objects)
     session.commit()
     session.close()
 
