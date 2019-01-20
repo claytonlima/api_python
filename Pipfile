@@ -9,6 +9,7 @@ verify_ssl = true
 sqlalchemy = "==1.2"
 bottle = "==0.12.13"
 tox = "==3.6.1"
+opencage = "*"
 
 [requires]
 python_version = "3.6"
