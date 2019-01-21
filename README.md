@@ -1,6 +1,7 @@
 # Configuração do Projeto #
 
 Necessário ter instalado o python 3.6
+<br />
 Necessário ter instalado o pip
 <br />
 Instalar o pipenv utilizando o pip
@@ -49,7 +50,6 @@ Exibi os motoristas que tem veículo próprio
 <br />
 <br />
 **127.0.0.1:8080/driver/ownvehicle**
-<br />
 <br />
 Exibi os motoristas que tem veículo próprio
 <br />
