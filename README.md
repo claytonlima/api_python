@@ -47,11 +47,6 @@ Exibi os motoristas que não estão com o caminhão carregado
 Exibi os motoristas que tem veículo próprio
 <br />
 <br />
-**http://127.0.0.1:8080/driver/ownvehicle**
-<br />
-Exibi os motoristas que tem veículo próprio
-<br />
-<br />
 **http://127.0.0.1:8080/driver/notownvehicle**
 <br />
 Exibi os motoristas que não tem veículo próprio
