@@ -64,7 +64,7 @@ Exibi os motoristas que não tem veículo próprio
 <br />
 **http://127.0.0.1:8080/driver/alldriversorigindestinygrouptype**
 <br />
-Exibi origin e destino agrupados
+Exibi origem e destino agrupados
 <br />
 <br />
 **Observação:**
