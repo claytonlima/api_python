@@ -60,7 +60,11 @@ Exibi os motoristas que tem veículo próprio
 **http://127.0.0.1:8080/driver/notownvehicle**
 <br />
 Exibi os motoristas que não tem veículo próprio
-
+**http://127.0.0.1:8080/driver/alldriversorigindestinygrouptype**
+<br />
+Exibi origin e destino agrupados
+<br />
+<br />
 **Observação:**
 <br />
 No projeto já tem uma cópia do banco, utilizado para desenvolvimento e testes da api.

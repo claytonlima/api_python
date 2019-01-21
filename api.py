@@ -1,8 +1,7 @@
-import requests
 from bottle import route, run, request
 from model.truck_types import add, update, delete, insert_types_of_trucks_auto, list_all_trucks
 from model.drivers import insert_drivers_auto, get_driver, get_all_drivers, get_all_drivers_vehicle_loaded, get_all_drivers_vehicle_not_loaded, get_all_drivers_own_vehicle, get_all_drivers_not_own_vehicle, get_all_drivers_origin_destiny_group_type
-from config.geocoding import GEOCODING_API_KEY
+from lib.geocoding_functions import get_origin_destiny_latitude_longitude
 from datetime import datetime
 
 @route('/alltypesoftrucks')
@@ -49,8 +48,8 @@ def remove_type_of_truck(id):
 def list_driver(id):
     result = get_driver(id)
 
-    result_origin_driver = get_origin_latitude_longitude(result.origin_latitude,  result.origin_longitude)
-    result_destiny_driver = get_origin_latitude_longitude(result.destiny_latitude, result.destiny_longitude)
+    result_origin_driver = get_origin_destiny_latitude_longitude(result.origin_latitude,  result.origin_longitude)
+    result_destiny_driver = get_origin_destiny_latitude_longitude(result.destiny_latitude, result.destiny_longitude)
 
     return {'result':
            [
@@ -75,8 +74,8 @@ def list_driver_all_with_origin_destiny():
 
     drivers_origin_destiny = []
     for driver in drivers:
-        result_origin_driver = get_origin_latitude_longitude(driver['origin_latitude'], driver['origin_longitude'])
-        result_destiny_driver = get_origin_latitude_longitude(driver['destiny_latitude'], driver['destiny_longitude'])
+        result_origin_driver = get_origin_destiny_latitude_longitude(driver['origin_latitude'], driver['origin_longitude'])
+        result_destiny_driver = get_origin_destiny_latitude_longitude(driver['destiny_latitude'], driver['destiny_longitude'])
         drivers_origin_destiny.append({'driver_id': driver['driver_id'], 'driver_name': driver['name'], 'origin': result_origin_driver, 'destiny': result_destiny_driver})
     drivers_origin_destiny
 
@@ -118,28 +117,12 @@ def list_drivers_origin_destiny_group_type():
 
     origin_destiny_type = []
     for all_driver_origin_destiny_group_type in all_drivers_origin_destiny_group_type:
-        result_origin_driver_type = get_origin_latitude_longitude(all_driver_origin_destiny_group_type['origin_latitude'], all_driver_origin_destiny_group_type['origin_longitude'])
-        result_destiny_driver_type = get_origin_latitude_longitude(all_driver_origin_destiny_group_type['destiny_latitude'], all_driver_origin_destiny_group_type['destiny_longitude'])
+        result_origin_driver_type = get_origin_destiny_latitude_longitude(all_driver_origin_destiny_group_type['origin_latitude'], all_driver_origin_destiny_group_type['origin_longitude'])
+        result_destiny_driver_type = get_origin_destiny_latitude_longitude(all_driver_origin_destiny_group_type['destiny_latitude'], all_driver_origin_destiny_group_type['destiny_longitude'])
         origin_destiny_type.append({'origin': result_origin_driver_type, 'destiny': result_destiny_driver_type})
 
     return {'result': origin_destiny_type}
 
     return {'result': all_drivers_origin_destiny_group_type}
-
-
-
-def get_origin_latitude_longitude(latitude, longitude):
-    url = "https://api.opencagedata.com/geocode/v1/json?q=" + latitude + "+" + longitude + "&key=" + GEOCODING_API_KEY + "&language=pt&pretty=1"
-    request_geo_data = requests.get(url).json()
-
-    if request_geo_data['status']['code'] == 200:
-        return request_geo_data['results'][0]['formatted']
-
-def get_destiny_latitude_longitude(latitude, longitude):
-    url = "https://api.opencagedata.com/geocode/v1/json?q=" + latitude + "+" + longitude + "&key=" + GEOCODING_API_KEY + "&language=pt&pretty=1"
-    request_geo_data = requests.get(url).json()
-
-    if request_geo_data['status']['code'] == 200:
-        return request_geo_data['results'][0]['formatted']
 
 run(port=8080)
