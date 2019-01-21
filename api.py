@@ -1,7 +1,7 @@
 import requests
 from bottle import route, run, request
 from model.truck_types import add, update, delete, insert_types_of_trucks_auto, list_all_trucks
-from model.drivers import insert_drivers_auto, get_driver, get_all_drivers
+from model.drivers import insert_drivers_auto, get_driver, get_all_drivers, get_all_drivers_vehicle_loaded, get_all_drivers_vehicle_not_loaded
 from config.geocoding import GEOCODING_API_KEY
 from datetime import datetime
 
@@ -54,14 +54,14 @@ def list_driver(id):
 
     return {'result':
            [
-            {
-             'driver_id': result.driver_id,
-             'driver_name': result.name,
-             'origin': result_origin_driver,
-             'destiny': result_destiny_driver
+             {
+                 'driver_id': result.driver_id,
+                 'driver_name': result.name,
+                 'origin': result_origin_driver,
+                 'destiny': result_destiny_driver
+             }
+            ]
             }
-           ]
-        }
 
 @route('/driver/addMock', method='POST')
 def add_drivers_auto():
@@ -81,6 +81,19 @@ def list_driver_all_with_origin_destiny():
     drivers_origin_destiny
 
     return {'result': drivers_origin_destiny}
+
+@route('/driver/vehicleloaded', method='GET')
+def list_drivers_vehicle_loaded():
+    drivers_vehicle_loaded = get_all_drivers_vehicle_loaded()
+
+    return {'result': drivers_vehicle_loaded}
+
+@route('/driver/vehiclenotloaded', method='GET')
+def list_drivers_vehicle_not_loaded():
+    drivers_vehicle_not_loaded = get_all_drivers_vehicle_not_loaded()
+
+    return {'result': drivers_vehicle_not_loaded}
+
 
 def get_origin_latitude_longitude(latitude, longitude):
     url = "https://api.opencagedata.com/geocode/v1/json?q=" + latitude + "+" + longitude + "&key=" + GEOCODING_API_KEY + "&language=pt&pretty=1"

@@ -28,7 +28,6 @@ engine = create_engine(SQLALCHEMY_DATABASE_URI, echo=True)
 Base.metadata.create_all(bind=engine)
 Session = sessionmaker(bind=engine)
 
-
 def insert_drivers_auto():
     session = Session()
 
@@ -73,5 +72,38 @@ def get_all_drivers():
 
     return drivers
 
+def get_all_drivers_vehicle_loaded():
+    session = Session()
+    stmt = text('SELECT driver_id, name FROM drivers WHERE vehicle_loaded=\'S\'')
+    stmt = stmt.columns(Drivers.driver_id, Drivers.name)
+    drivers_information = session.query(Drivers).from_statement(stmt).all()
+    session.close()
+
+    drivers = []
+    for driver_information in drivers_information:
+        drivers.append({
+            'driver_id': driver_information.driver_id,
+            'name': driver_information.name,
+            'vehicle_loaded': 'Loaded',
+        })
+
+    return drivers
+
+def get_all_drivers_vehicle_not_loaded():
+    session = Session()
+    stmt = text('SELECT driver_id, name FROM drivers WHERE vehicle_loaded=\'N\'')
+    stmt = stmt.columns(Drivers.driver_id, Drivers.name)
+    drivers_information = session.query(Drivers).from_statement(stmt).all()
+    session.close()
+
+    drivers = []
+    for driver_information in drivers_information:
+        drivers.append({
+            'driver_id': driver_information.driver_id,
+            'name': driver_information.name,
+            'vehicle_loaded': 'Not loaded',
+        })
+
+    return drivers
 
 
