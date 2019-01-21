@@ -25,6 +25,7 @@ Deleta o registro, necessário passar o id do tipo de caminhão que será deleta
 <br />
 <br />
 **Apis sobre Motoristas**
+<br />
 **127.0.0.1:8080/driver/list/:id**
 <br />
 Exibi sobre o motorista -> Id, nome, origem e destino
