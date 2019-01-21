@@ -2,9 +2,10 @@
 <ol>
     <li>Necessário ter instalado o python 3.6</li>
     <li>Necessário ter instalado o pip</li>
-    <li>Instalar o pipenv utilizando o pip (pip install pipenv)</li>
-    <li>Ativar o ambiente virtual necessário estar na pasta do projeto(pipenv shell)</li>
-    <li>Ativar a api (python api)</li>
+    <li>Instalar o pipenv utilizando o pip ( pip install pipenv )</li>
+    <li>No diretório do projeto, instalar as denpedências do projeto ( pipenv install )</li>
+    <li>Ativar o ambiente virtual necessário estar na pasta do projeto( pipenv shell )</li>
+    <li>Ativar a api no diretório do projeto ( python api)</li>
 </ol>
 
 **Recomendações**
