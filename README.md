@@ -76,9 +76,9 @@ Mas se caso quiser deletar o banco da pasta database e depois recria-lo, temos d
 <br />
 **http://127.0.0.1:8080/typeoftruck/addMock**
 <br />
-Tabela de tipos de caminhões, insere cincos tipos de caminhões na tabela -> trucks_types
+Tabela de tipos de caminhões, insere cinco tipos de caminhões na tabela -> trucks_types
 <br />
 <br />
 **http://127.0.0.1:8080//driver/addMock**
 <br />
-Tabela de motoristas, insere cincos motoristas na tabela -> drivers
+Tabela de motoristas, insere cinco motoristas na tabela -> drivers
