@@ -11,7 +11,7 @@
 **Recomendações:**
 <ol>
     <li>Se possivel utilize a IDE PyCharm</li>
-    <li>Se possivel utilize o PostMan para as requisiçoes</li>
+    <li>Se possivel utilize o PostMan para as requisições</li>
  </ol>
 <br />
 
@@ -23,7 +23,7 @@ Lista todos os tipos de caminhões cadastrados
 
 **http://127.0.0.1:8080/typeoftruck/add**
 <br />
-Adiciona um novo tipo de caminhão é apenas necessário passar truck_name = nome do caminhão**
+Adiciona um novo tipo de caminhão é apenas necessário passar truck_name = nome do caminhão
 
 **http://127.0.0.1:8080/typeoftruck/update**
 <br />
@@ -65,7 +65,7 @@ Exibi os motoristas que não tem veículo próprio
 <br />
 No projeto já tem uma cópia do banco, utilizado para desenvolvimento e testes da api.
 <br />
-Caso queira deletar o banco da pasta database e inserir os dados novamenete nas tabelas, temos dois métodos para ajuda-lo.
+Mas se caso queira deletar o banco da pasta database e depois de recria-lo quiser inserir os dados novamenete nas tabelas, temos dois métodos para ajuda-lo.
 <br />
 <br />
 **http://127.0.0.1:8080/typeoftruck/addMock**
