@@ -22,3 +22,6 @@ Altera registro do caminhão é apenas necessário passar truck_name = nome do c
 **127.0.0.1:8080//typeoftruck/del**
 <br />
 Delete o registro é apenas necessário passa um dia cadatrado
+<br />
+<br />
+**Apis para Tipos de Motoristas**

@@ -1,7 +1,7 @@
 import requests
 from bottle import route, run, request
 from model.truck_types import add, update, delete, insert_types_of_trucks_auto, list_all_trucks
-from model.drivers import insert_drivers_auto, get_driver, get_all_drivers, get_all_drivers_vehicle_loaded, get_all_drivers_vehicle_not_loaded
+from model.drivers import insert_drivers_auto, get_driver, get_all_drivers, get_all_drivers_vehicle_loaded, get_all_drivers_vehicle_not_loaded, get_all_drivers_own_vehicle, get_all_drivers_not_own_vehicle, get_all_drivers_origin_destiny_group_type
 from config.geocoding import GEOCODING_API_KEY
 from datetime import datetime
 
@@ -93,6 +93,37 @@ def list_drivers_vehicle_not_loaded():
     drivers_vehicle_not_loaded = get_all_drivers_vehicle_not_loaded()
 
     return {'result': drivers_vehicle_not_loaded}
+
+@route('/driver/vehiclenotloaded', method='GET')
+def list_drivers_vehicle_not_loaded():
+    drivers_vehicle_not_loaded = get_all_drivers_vehicle_not_loaded()
+
+    return {'result': drivers_vehicle_not_loaded}
+
+@route('/driver/ownvehicle', method='GET')
+def list_drivers_own_vehicle():
+    drivers_vehicle_own_vehicle = get_all_drivers_own_vehicle()
+
+    return {'result': drivers_vehicle_own_vehicle}
+
+@route('/driver/notownvehicle', method='GET')
+def list_drivers_not_own_vehicle():
+    drivers_vehicle_not_own_vehicle = get_all_drivers_not_own_vehicle()
+
+    return {'result': drivers_vehicle_not_own_vehicle}
+
+@route('/driver/notownvehicle', method='GET')
+def list_drivers_not_own_vehicle():
+    drivers_vehicle_not_own_vehicle = get_all_drivers_not_own_vehicle()
+
+    return {'result': drivers_vehicle_not_own_vehicle}
+
+@route('/driver/alldriversorigindestinygrouptype', method='GET')
+def list_drivers_origin_destiny_group_type():
+    all_drivers_origin_destiny_group_type = get_all_drivers_origin_destiny_group_type()
+
+    return {'result': all_drivers_origin_destiny_group_type}
+
 
 
 def get_origin_latitude_longitude(latitude, longitude):

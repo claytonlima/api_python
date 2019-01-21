@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, Column, Integer, String, CHAR, DateTime, text
+from sqlalchemy import create_engine, Column, Integer, String, CHAR, DateTime, text, func
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from config.db import SQLALCHEMY_DATABASE_URI
@@ -37,7 +37,10 @@ def insert_drivers_auto():
         Drivers(driver_id=3, name='Paulo Frias', age=30, sex='M', own_vehicle='S', type_driver_license='C', vehicle_loaded='S', type_vehicle=2, origin_latitude='-23.4585103', origin_longitude='-46.7668096', destiny_latitude='-23.7306369', destiny_longitude='-46.546628', created_data=datetime.now()),
         Drivers(driver_id=4, name='Judas Mariano', age=69, sex='M', own_vehicle='N', type_driver_license='E', vehicle_loaded='N', type_vehicle=5, origin_latitude='-23.4585103', origin_longitude='-46.7668096', destiny_latitude='-23.7306369', destiny_longitude='-46.546628', created_data=datetime.now()),
         Drivers(driver_id=5, name='Bezerra da Silva', age=50, sex='M', own_vehicle='S', type_driver_license='C', vehicle_loaded='S', type_vehicle=4, origin_latitude='-23.4585103', origin_longitude='-46.7668096', destiny_latitude='-23.7306369', destiny_longitude='-46.546628', created_data=datetime.now()),
-     ]
+        Drivers(driver_id=6, name='Joaquim Medeiros', age=35, sex='M', own_vehicle='S', type_driver_license='C',vehicle_loaded='S', type_vehicle=5, origin_latitude='-23.4585103', origin_longitude='-46.7668096',destiny_latitude='-23.7306369', destiny_longitude='-46.546628', created_data=datetime.now()),
+        Drivers(driver_id=7, name='Xavier Carvalho', age=35, sex='M', own_vehicle='S', type_driver_license='C',vehicle_loaded='S', type_vehicle=1, origin_latitude='-23.4585103', origin_longitude='-46.7668096', destiny_latitude='-23.7306369', destiny_longitude='-46.546628', created_data=datetime.now()),
+
+    ]
 
     result = session.bulk_save_objects(objects)
     session.commit()
@@ -106,4 +109,53 @@ def get_all_drivers_vehicle_not_loaded():
 
     return drivers
 
+def get_all_drivers_own_vehicle():
+    session = Session()
+    stmt = text('SELECT driver_id, name FROM drivers WHERE vehicle_loaded=\'S\'')
+    stmt = stmt.columns(Drivers.driver_id, Drivers.name)
+    drivers_information = session.query(Drivers).from_statement(stmt).all()
+    session.close()
+
+    drivers = []
+    for driver_information in drivers_information:
+        drivers.append({
+            'driver_id': driver_information.driver_id,
+            'name': driver_information.name,
+            'own_vehicle': 'Yes',
+        })
+
+    return drivers
+
+def get_all_drivers_not_own_vehicle():
+    session = Session()
+    stmt = text('SELECT driver_id, name FROM drivers WHERE vehicle_loaded=\'N\'')
+    stmt = stmt.columns(Drivers.driver_id, Drivers.name)
+    drivers_information = session.query(Drivers).from_statement(stmt).all()
+    session.close()
+
+    drivers = []
+    for driver_information in drivers_information:
+        drivers.append({
+            'driver_id': driver_information.driver_id,
+            'name': driver_information.name,
+            'own_vehicle': 'No',
+        })
+
+    return drivers
+
+def get_all_drivers_origin_destiny_group_type():
+    session = Session()
+    types_origin_destiny = session.query(Drivers.origin_latitude, Drivers.origin_longitude, Drivers.destiny_latitude, Drivers.destiny_longitude).group_by(Drivers.origin_latitude, Drivers.origin_longitude, Drivers.destiny_latitude, Drivers.destiny_longitude).all()
+    session.close()
+
+    types_locations = []
+    for type_origin_destiny in types_origin_destiny:
+        types_locations.append({
+            'origin_latitude': type_origin_destiny.origin_latitude,
+            'origin_longitude': type_origin_destiny.origin_longitude,
+            'destiny_latitude': type_origin_destiny.destiny_latitude,
+            'destiny_longitude': type_origin_destiny.destiny_longitude,
+        })
+
+    return types_locations
 
