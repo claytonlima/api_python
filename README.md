@@ -5,16 +5,17 @@
     <li>Instalar o pipenv utilizando o pip ( pip install pipenv )</li>
     <li>No diretório do projeto, instalar as denpedências do projeto ( pipenv install )</li>
     <li>Ativar o ambiente virtual necessário estar na pasta do projeto( pipenv shell )</li>
-    <li>Ativar a api no diretório do projeto ( python api)</li>
+    <li>Ativar a api no diretório do projeto ( python api )</li>
 </ol>
 
-**Recomendações**
+**Recomendações:**
 <ol>
     <li>Se possivel utilize a IDE PyCharm</li>
     <li>Se possivel utilize o PostMan para as requisiçoes</li>
  </ol>
+<br />
 
-**Apis sobre Tipos de caminhões**
+**Apis sobre Tipos de caminhões:**
 
 **http://127.0.0.1:8080/alltypesoftrucks**
 <br />
@@ -33,7 +34,7 @@ Altera registro do caminhão é apenas necessário passar truck_name = nome do c
 Deleta o registro, necessário passar o id do tipo de caminhão que será deletado
 <br />
 <br />
-**Apis sobre Motoristas**
+**Apis sobre Motoristas:**
 <br />
 <br />
 **http://127.0.0.1:8080/driver/list/:id**
@@ -59,3 +60,14 @@ Exibi os motoristas que tem veículo próprio
 **http://127.0.0.1:8080/driver/notownvehicle**
 <br />
 Exibi os motoristas que não tem veículo próprio
+
+**Observação:**
+Foi criado dois metodos para inserção de dados em um banco sqllite sem informação nas tabelas
+<br />
+**http://127.0.0.1:8080/typeoftruck/addMock**
+<br />
+Tabela de tipos de caminhões
+
+**http://127.0.0.1:8080//driver/addMock**
+<br />
+Tabela de motoristas
