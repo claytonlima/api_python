@@ -65,8 +65,8 @@ Exibi os motoristas que não tem veículo próprio
 <br />
 No projeto já tem uma cópia do banco, utilizado para desenvolvimento e testes da api.
 <br />
+Caso queira deletar o banco da pasta database e inserir os dados novamenete nas tabelas, temos dois métodos para ajuda-lo.
 <br />
-Caso queira deletar o banco da pasta database e inserir os dados novamenete nas tabelas, temos dois métodos para ajuda-lo
 <br />
 **http://127.0.0.1:8080/typeoftruck/addMock**
 <br />
