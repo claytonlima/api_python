@@ -71,7 +71,7 @@ Exibi origem e destino agrupados
 <br />
 No projeto já tem uma cópia do banco, utilizado para desenvolvimento e testes da api.
 <br />
-Mas se caso quiser deletar o banco da pasta database e depois de recria-lo, temos dois métodos para inserir os dados novamente nas tabelas.
+Mas se caso quiser deletar o banco da pasta database e depois recria-lo, temos dois métodos para inserir os dados novamente nas tabelas.
 <br />
 <br />
 **http://127.0.0.1:8080/typeoftruck/addMock**
