@@ -62,6 +62,7 @@ Exibi os motoristas que tem veículo próprio
 Exibi os motoristas que não tem veículo próprio
 
 **Observação:**
+<br />
 No projeto já tem uma cópia do banco, utilizado para desenvolvimento e testes da api
 <br />
 Caso queira deletar o banco da pasta database e inserir os dados novamenete nas tabelas, temos dois métodos para auxilia-lo
@@ -69,6 +70,7 @@ Caso queira deletar o banco da pasta database e inserir os dados novamenete nas 
 **http://127.0.0.1:8080/typeoftruck/addMock**
 <br />
 Tabela de tipos de caminhões, insere cincos tipos de caminhões na tabela -> trucks_types
+<br />
 <br />
 **http://127.0.0.1:8080//driver/addMock**
 <br />
