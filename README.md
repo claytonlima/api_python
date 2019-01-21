@@ -60,6 +60,8 @@ Exibi os motoristas que tem veículo próprio
 **http://127.0.0.1:8080/driver/notownvehicle**
 <br />
 Exibi os motoristas que não tem veículo próprio
+<br />
+<br />
 **http://127.0.0.1:8080/driver/alldriversorigindestinygrouptype**
 <br />
 Exibi origin e destino agrupados
