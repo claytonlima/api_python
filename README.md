@@ -1,27 +1,24 @@
 # Configuração do Projeto #
-
-Necessário ter instalado o python 3.6
-<br />
-Necessário ter instalado o pip
-<br />
-Instalar o pipenv utilizando o pip
-<br />
-<br />
+<ol>
+    <li>Necessário ter instalado o python 3.6</li>
+    <li>Necessário ter instalado o pip</li>
+    <li>Instalar o pipenv utilizando o pip</li>
+<ol>
 **Apis sobre Tipos de caminhões**
 
-**127.0.0.1:8080/alltypesoftrucks**
+**http://127.0.0.1:8080/alltypesoftrucks**
 <br />
-Lista todos os tipos de caminhoões cadastrados
+Lista todos os tipos de caminhões cadastrados
 
-**127.0.0.1:8080/typeoftruck/add**
+**http://127.0.0.1:8080/typeoftruck/add**
 <br />
 Adiciona um novo tipo de caminhão é apenas necessário passar truck_name = nome do caminhão**
 
-**127.0.0.1:8080/typeoftruck/update**
+**http://127.0.0.1:8080/typeoftruck/update**
 <br />
 Altera registro do caminhão é apenas necessário passar truck_name = nome do caminhão
 
-**127.0.0.1:8080/typeoftruck/del/:id**
+**http://127.0.0.1:8080/typeoftruck/del/:id**
 <br />
 Deleta o registro, necessário passar o id do tipo de caminhão que será deletado
 <br />
@@ -29,30 +26,31 @@ Deleta o registro, necessário passar o id do tipo de caminhão que será deleta
 **Apis sobre Motoristas**
 <br />
 <br />
-**127.0.0.1:8080/driver/list/:id**
+**http://127.0.0.1:8080/driver/list/:id**
 <br />
 Exibi sobre o motorista -> Id, nome, origem e destino
 <br />
 <br />
-**127.0.0.1:8080/driver/listalldrivers**
+**http://127.0.0.1:8080/driver/listalldrivers**
 <br />
 Exibi sobre os motoristas -> Id, nome, origem e destino
 <br />
 <br />
-**127.0.0.1:8080/driver/vehiclenotloaded**
+**http://127.0.0.1:8080/driver/vehiclenotloaded**
 <br />
 Exibi os motoristas que não estão com o caminhão carregado
 <br />
 <br />
-**127.0.0.1:8080/driver/ownvehicle**
+**http://127.0.0.1:8080/driver/ownvehicle**
 <br />
 Exibi os motoristas que tem veículo próprio
 <br />
 <br />
-**127.0.0.1:8080/driver/ownvehicle**
+**http://127.0.0.1:8080/driver/ownvehicle**
 <br />
 Exibi os motoristas que tem veículo próprio
 <br />
-**127.0.0.1:8080/driver/notownvehicle**
+<br />
+**http://127.0.0.1:8080/driver/notownvehicle**
 <br />
 Exibi os motoristas que não tem veículo próprio
