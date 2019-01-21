@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, Column, Integer, String, CHAR, DateTime
+from sqlalchemy import create_engine, Column, Integer, String, CHAR, DateTime, text
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from config.db import SQLALCHEMY_DATABASE_URI
@@ -52,6 +52,26 @@ def get_driver(id):
     session.close()
 
     return result
+
+def get_all_drivers():
+    session = Session()
+    stmt = text('SELECT driver_id, name, origin_latitude, origin_longitude, destiny_latitude, destiny_longitude  FROM drivers')
+    stmt = stmt.columns(Drivers.driver_id, Drivers.name, Drivers.origin_latitude, Drivers.origin_longitude, Drivers.destiny_latitude, Drivers.destiny_longitude)
+    drivers_information = session.query(Drivers).from_statement(stmt).all()
+    session.close()
+
+    drivers = []
+    for driver_information in drivers_information:
+        drivers.append({
+            'driver_id': driver_information.driver_id,
+            'name': driver_information.name,
+            'origin_latitude': driver_information.origin_latitude,
+            'origin_longitude': driver_information.origin_longitude,
+            'destiny_latitude': driver_information.destiny_latitude,
+            'destiny_longitude': driver_information.destiny_longitude,
+        })
+
+    return drivers
 
 
 
