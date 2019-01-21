@@ -1,8 +1,9 @@
 # Configuração do Projeto #
 
-Será necessário ter instalado o python 3.6
+Necessário ter instalado o python 3.6
+Necessário ter instalado o pip
 <br />
-Ter o pipenv para instalado para instalação das depêndencias do projeto.
+Instalar o pipenv utilizando o pip
 <br />
 <br />
 **Apis sobre Tipos de caminhões**
@@ -51,7 +52,6 @@ Exibi os motoristas que tem veículo próprio
 <br />
 <br />
 Exibi os motoristas que tem veículo próprio
-<br />
 <br />
 **127.0.0.1:8080/driver/notownvehicle**
 <br />
