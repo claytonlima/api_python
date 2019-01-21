@@ -122,6 +122,14 @@ def list_drivers_not_own_vehicle():
 def list_drivers_origin_destiny_group_type():
     all_drivers_origin_destiny_group_type = get_all_drivers_origin_destiny_group_type()
 
+    origin_destiny_type = []
+    for all_driver_origin_destiny_group_type in all_drivers_origin_destiny_group_type:
+        result_origin_driver_type = get_origin_latitude_longitude(all_driver_origin_destiny_group_type['origin_latitude'], all_driver_origin_destiny_group_type['origin_longitude'])
+        result_destiny_driver_type = get_origin_latitude_longitude(all_driver_origin_destiny_group_type['destiny_latitude'], all_driver_origin_destiny_group_type['destiny_longitude'])
+        origin_destiny_type.append({'origin': result_origin_driver_type, 'destiny': result_destiny_driver_type})
+
+    return {'result': origin_destiny_type}
+
     return {'result': all_drivers_origin_destiny_group_type}
 
 
