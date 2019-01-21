@@ -24,7 +24,6 @@ Altera registro do caminhão é apenas necessário passar truck_name = nome do c
 Deleta o registro, necessário passar o id do tipo de caminhão que será deletado
 <br />
 <br />
--------------------------------------------------------------------------------------------------
 **Apis sobre Motoristas**
 <br />
 <br />
@@ -32,21 +31,28 @@ Deleta o registro, necessário passar o id do tipo de caminhão que será deleta
 <br />
 Exibi sobre o motorista -> Id, nome, origem e destino
 <br />
+<br />
 **127.0.0.1:8080/driver/listalldrivers**
 <br />
 Exibi sobre os motoristas -> Id, nome, origem e destino
+<br />
 <br />
 **127.0.0.1:8080/driver/vehiclenotloaded**
 <br />
 Exibi os motoristas que não estão com o caminhão carregado
 <br />
-**127.0.0.1:8080/driver/ownvehicle**
-<br />
-Exibi os motoristas que tem veículo próprio
 <br />
 **127.0.0.1:8080/driver/ownvehicle**
 <br />
 Exibi os motoristas que tem veículo próprio
+<br />
+<br />
+**127.0.0.1:8080/driver/ownvehicle**
+<br />
+<br />
+Exibi os motoristas que tem veículo próprio
+<br />
+<br />
 **127.0.0.1:8080/driver/notownvehicle**
 <br />
 Exibi os motoristas que não tem veículo próprio
