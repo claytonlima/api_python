@@ -7,6 +7,12 @@
     <li>Ativar a api (python api)</li>
 </ol>
 
+**Recomendações**
+<ol>
+    <li>Se possivel utilize a IDE PyCharm</li>
+    <li>Se possivel utilize o PostMan para as requisiçoes</li>
+ </ol>
+
 **Apis sobre Tipos de caminhões**
 
 **http://127.0.0.1:8080/alltypesoftrucks**
