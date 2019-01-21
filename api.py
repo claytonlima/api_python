@@ -112,12 +112,6 @@ def list_drivers_not_own_vehicle():
 
     return {'result': drivers_vehicle_not_own_vehicle}
 
-@route('/driver/notownvehicle', method='GET')
-def list_drivers_not_own_vehicle():
-    drivers_vehicle_not_own_vehicle = get_all_drivers_not_own_vehicle()
-
-    return {'result': drivers_vehicle_not_own_vehicle}
-
 @route('/driver/alldriversorigindestinygrouptype', method='GET')
 def list_drivers_origin_destiny_group_type():
     all_drivers_origin_destiny_group_type = get_all_drivers_origin_destiny_group_type()
