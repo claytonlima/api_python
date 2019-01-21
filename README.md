@@ -3,7 +3,8 @@
     <li>Necessário ter instalado o python 3.6</li>
     <li>Necessário ter instalado o pip</li>
     <li>Instalar o pipenv utilizando o pip</li>
-<ol>
+</ol>
+
 **Apis sobre Tipos de caminhões**
 
 **http://127.0.0.1:8080/alltypesoftrucks**
